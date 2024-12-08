@@ -1,0 +1,16 @@
+networks:
+  test:
+    name: sample
+
+services:
+  container1:
+    image: hello
+    networks: 
+      test:
+    container_name: container1
+
+  container2:
+    image: hello
+    networks: 
+      test:
+    container_name: container2

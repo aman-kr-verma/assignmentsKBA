@@ -1,0 +1,22 @@
+fabric:
+  cas:
+  - "ca1.manufacturer.insuranceClaimPostAccident.com"
+  - "ca1.police.insuranceClaimPostAccident.com"
+  - "ca1.government.insuranceClaimPostAccident.com"
+  - "ca1.insuranceCompany.insuranceClaimPostAccident.com"
+  peers: 
+  - "peer1.manufacturer.insuranceClaimPostAccident.com"
+  - "peer1.police.insuranceClaimPostAccident.com"
+  - "peer1.government.insuranceClaimPostAccident.com"
+  - "peer1.insuranceCompany.insuranceClaimPostAccident.com"
+  orderers:
+  - "orderer1.insuranceClaimPostAccident.com"
+  - "orderer2.insuranceClaimPostAccident.com"
+  - "orderer3.insuranceClaimPostAccident.com"
+  settings:
+    ca:
+      FABRIC_LOGGING_SPEC: DEBUG
+    peer:
+      FABRIC_LOGGING_SPEC: DEBUG
+    orderer:
+      FABRIC_LOGGING_SPEC: DEBUG
