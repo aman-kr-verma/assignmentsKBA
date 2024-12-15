@@ -44,6 +44,12 @@ cd ../electronics_network/
 ./stopNetwork.sh
 ```
 
+## outputs
+
+![alt text](<network output.png>)
 
 
+![alt text](<create api.png>)
+
+![alt text](<getLists api.png>)
 
