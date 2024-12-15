@@ -11,7 +11,7 @@ func main() {
 		"invoke",
 		make(map[string][]byte),
 		"CreateElectronicItem",
-		"Item09",
+		"Item01",
 		"TV",
 		"black",
 		"22/07/2024",
@@ -30,7 +30,7 @@ func main() {
 
 	// result := submitTxnFn("supplier", "electronicschannel", "electronicsSC", "RawMaterialContract", "private", privateData, "CreateRawMaterial", "MAT06")
 
-	// result := submitTxnFn("supplier", "electronicschannel", "electronicsSC", "RawMaterialContract", "query", make(map[string][]byte), "ReadRawMaterial", "MAT01")
+	// result := submitTxnFn("supplier", "electronicschannel", "electronicsSC", "RawMaterialContract", "query", make(map[string][]byte), "ReadRawMaterial", "MAT06")
 
 	// result := submitTxnFn("manufacturer", "electronicschannel", "electronicsSC", "ElectronicsContract", "query", make(map[string][]byte), "GetAllElectronicItems")
 
