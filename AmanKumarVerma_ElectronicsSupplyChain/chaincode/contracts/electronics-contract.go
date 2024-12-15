@@ -126,6 +126,7 @@ func (e *ElectronicsContract) ReadElectronicItem(ctx contractapi.TransactionCont
 	return &item, nil
 }
 
+// DeleteElectronicItem deletes an item with the provided item id
 func (e *ElectronicsContract) DeleteElectronicItem(ctx contractapi.TransactionContextInterface, itemID string) (string, error) {
 
 	clientOrgID, err := ctx.GetClientIdentity().GetMSPID()
@@ -153,6 +154,7 @@ func (e *ElectronicsContract) DeleteElectronicItem(ctx contractapi.TransactionCo
 	}
 }
 
+// GetAllElectronicItems fetches all the electronic items
 func (e *ElectronicsContract) GetAllElectronicItems(ctx contractapi.TransactionContextInterface) ([]*ElectronicItem, error) {
 
 	queryString := `{"selector":{"assetType":"electronics"}, "sort":[{ "color": "desc"}]}`
@@ -183,6 +185,7 @@ func itemResultIteratorFunction(resultsIterator shim.StateQueryIteratorInterface
 	return items, nil
 }
 
+// GetElectronicItemsByRange fetches electronic items for the given range
 func (e *ElectronicsContract) GetElectronicItemsByRange(ctx contractapi.TransactionContextInterface, startKey, endKey string) ([]*ElectronicItem, error) {
 	resultsIterator, err := ctx.GetStub().GetStateByRange(startKey, endKey)
 	if err != nil {
@@ -193,6 +196,7 @@ func (e *ElectronicsContract) GetElectronicItemsByRange(ctx contractapi.Transact
 	return itemResultIteratorFunction(resultsIterator)
 }
 
+// GetElectronicItemHistory fetches the history of a particular item
 func (e *ElectronicsContract) GetElectronicItemHistory(ctx contractapi.TransactionContextInterface, itemID string) ([]*HistoryQueryResult, error) {
 
 	resultsIterator, err := ctx.GetStub().GetHistoryForKey(itemID)
@@ -236,6 +240,7 @@ func (e *ElectronicsContract) GetElectronicItemHistory(ctx contractapi.Transacti
 	return records, nil
 }
 
+// GetElectronicsItemsWithPagination outputs the items, for the provided page size and bookmark
 func (e *ElectronicsContract) GetElectronicsItemsWithPagination(ctx contractapi.TransactionContextInterface, pageSize int32, bookmark string) (*PaginatedQueryResult, error) {
 
 	queryString := `{"selector":{"assetType":"electronics"}}`

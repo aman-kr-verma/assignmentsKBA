@@ -199,7 +199,7 @@ func main() {
 		ctx.JSON(http.StatusOK, gin.H{"data": rawMaterials})
 
 	})
-
+	// create an instance of raw material
 	router.POST("/api/rawMaterial", func(ctx *gin.Context) {
 		var req RawMaterial
 		if err := ctx.BindJSON(&req); err != nil {
@@ -221,6 +221,7 @@ func main() {
 		ctx.JSON(http.StatusOK, req)
 	})
 
+	// fetches raw material with provided id
 	router.GET("/api/rawMaterial/:id", func(ctx *gin.Context) {
 		materialId := ctx.Param("id")
 

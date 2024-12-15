@@ -36,6 +36,7 @@ func (r *RawMaterialContract) RawMaterialExists(ctx contractapi.TransactionConte
 	return data != nil, nil
 }
 
+// CreateRawMaterial creates an intance of raw material, with the provided details
 func (r *RawMaterialContract) CreateRawMaterial(ctx contractapi.TransactionContextInterface, materialID string) (string, error) {
 
 	clientOrgID, err := ctx.GetClientIdentity().GetMSPID()
@@ -155,6 +156,7 @@ func (r *RawMaterialContract) DeleteRawMaterial(ctx contractapi.TransactionConte
 	}
 }
 
+// GetAllRawMaterials fetches all the raw materials
 func (r *RawMaterialContract) GetAllRawMaterials(ctx contractapi.TransactionContextInterface) ([]*RawMaterial, error) {
 	queryString := `{"selector":{"assetType":"rawmaterial"}}`
 	resultsIterator, err := ctx.GetStub().GetPrivateDataQueryResult(collectionName, queryString)
@@ -165,6 +167,7 @@ func (r *RawMaterialContract) GetAllRawMaterials(ctx contractapi.TransactionCont
 	return RawMaterialResultIteratorFunction(resultsIterator)
 }
 
+// GetRawMaterialsByRange fetches raw materials by range of material ids provided
 func (r *RawMaterialContract) GetRawMaterialsByRange(ctx contractapi.TransactionContextInterface, startKey string, endKey string) ([]*RawMaterial, error) {
 	resultsIterator, err := ctx.GetStub().GetPrivateDataByRange(collectionName, startKey, endKey)
 
@@ -176,7 +179,6 @@ func (r *RawMaterialContract) GetRawMaterialsByRange(ctx contractapi.Transaction
 	return RawMaterialResultIteratorFunction(resultsIterator)
 
 }
-
 
 // iterator function
 
